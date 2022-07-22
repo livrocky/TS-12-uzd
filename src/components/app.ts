@@ -2,6 +2,7 @@ import brands from '../data/brands';
 import cars from '../data/cars';
 import models from '../data/models';
 import CarsCollection from '../helpers/cars-collection';
+import MyTable from './table';
 
 class App {
   private htmlElement: HTMLElement;
@@ -20,8 +21,9 @@ class App {
   initialize = (): void => {
     const container = document.createElement('div');
     container.className = 'container my-5';
-    container.innerHTML = 'Laukiu kol būsiu sukurtas';
-
+    container.innerHTML = '<h1 class="display-3 mb-3">Automobiliu lentele</h1>';
+    const t1 = new MyTable(this._carsCollection.allCars);
+    container.append(t1.htmlTable);
     this.htmlElement.append(container);
   };
 }
